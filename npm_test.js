@@ -1,3 +1,7 @@
-const crypto = require("./index")
+import crypto from "./index.js";
 
-crypto.about()
+crypto.getcoinprice("ETH").then(obj => {  
+	console.log(obj)
+}).catch(err => {
+	console.log(err)
+})
