@@ -1,6 +1,6 @@
 {
   "name": "cryptocensus",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Package for crypto currencies live data",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
   ],
   "author": "Harish Kumar",
   "license": "ISC",
-  "type":"module",
+  "type": "module",
   "dependencies": {
     "node-fetch": "^3.0.0"
   },
