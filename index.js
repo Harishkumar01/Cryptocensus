@@ -2,8 +2,6 @@ import fetch from 'node-fetch'
 
 let coinlayerapi = "http://api.coinlayer.com/live?access_key=e162a9f47e519469c6657b8390a349b5"
 
-let coingeckoapi = `https://api.coingecko.com/api/v3/simple/price?ids=Ethereum&vs_currencies=USD&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true&include_last_updated_at=true`
-
 let coingeckoapilist = "https://api.coingecko.com/api/v3/simple/supported_vs_currencies"
 
 
@@ -92,6 +90,21 @@ cryptoData.coinhistory = ((crypto,date) => {
 cryptoData.coinlist = (() => {
 	return new Promise((done, err) => {
 			fetch(coingeckoapilist)
+				.then(response => {
+					if (response.status === 200) {
+						return response.json()
+					} else {
+						err(`Sorry, We couldn't get the Price. Bad response code : ` + response.status)
+					}
+				})
+				.then(json => done(json))
+				.catch(error => console.error(`Sorry, We couldn't get the List. Error: ` + error))
+	})
+})
+
+cryptoData.coinmarketchart = ((crypto,cuurency,days) => {
+	return new Promise((done, err) => {
+			fetch(`https://api.coingecko.com/api/v3/coins/${crypto}/market_chart?vs_currency=${cuurency}&days=${days}`)
 				.then(response => {
 					if (response.status === 200) {
 						return response.json()

@@ -30,3 +30,5 @@ import crypto from 'cryptocensus';
 * `crypto.getcoinvalues("usd")` is the function to get any coin value in mentioned currency, example mention is **USD**.
 
 * `crypto.coinhistory("ethereum","10-10-2021")` is the function to get any coin value on a particular date, example mentioned here is **Ethereum(ETH)** and on date **(10-10-2021)**.
+
+* `crypto.coinmarketchart("ethereum","usd","1")` is the function to get market chart of any coin upto any previous number of days, example mentioned here is **Ethereum(ETH)** and number of previous days is **1**.

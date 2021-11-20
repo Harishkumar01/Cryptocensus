@@ -19,14 +19,22 @@ crypto.coinlist().then(obj => {
 	console.log(err)
 })
 
-crypto.getcoinvalues("usd").then(obj => { 
-    console.log("market value", obj) 
+
+crypto.coinhistory("ethereum","10-10-2021").then(obj => { 
+    console.log("Coinhistory", obj) 
 }).catch(err => {
 	console.log(err)
 })
 
-crypto.coinhistory("ethereum","10-10-2021").then(obj => { 
-    console.log("CoinList", obj) 
+crypto.coinmarketchart("ethereum","usd","1").then(obj => { 
+    console.log("Coinmarketchart", obj) 
+}).catch(err => {
+	console.log(err)
+})
+
+
+crypto.getcoinvalues("usd").then(obj => { 
+    console.log("market value", obj) 
 }).catch(err => {
 	console.log(err)
 })
